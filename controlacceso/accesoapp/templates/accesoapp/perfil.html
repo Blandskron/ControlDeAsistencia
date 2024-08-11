@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Perfil de {{ usuario.nombre }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header custom-color text-center">
+                <h1>Perfil de {{ usuario.nombre }} {{ usuario.apellido }}</h1>
+            </div>
+            <div class="card-body">
+                <p><strong>Email:</strong> {{ usuario.email }}</p>
+                <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+                <p><strong>Empresa:</strong> {{ usuario.empresa }}</p>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="d-grid">
+                        <button type="submit" class="btn custom-btn">Registrar Asistencia</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
